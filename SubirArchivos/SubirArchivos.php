@@ -40,7 +40,7 @@ $codigosErrorSubida= [
     $mensaje = '';
 
     //var_dump($_FILES);
-    $directorio = 'C:\xampp\htdocs\tallerPHP\SubirFicheros'; //directorio de alojamiento
+    $directorio = 'C:\xampp\htdocs\tallerPHP\SubirFicheros\imgusers'; //directorio de alojamiento
     if  ( empty ($_FILES['archivos']['name'][0] )){
         echo " No hay ficheros";
         exit();
