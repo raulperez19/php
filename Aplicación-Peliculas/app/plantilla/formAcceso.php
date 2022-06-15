@@ -14,15 +14,16 @@ ob_start();
 		<tr>
 			<td>Usuario</td>
 			<td><input type="text" name="user"
-				value="<?= $user ?>"></td>
+				value=""></td>
 		</tr>
 		<tr>
 			<td>Contraseña:</td>
 			<td><input type="password" name="clave"
-				value="<?= $clave ?>"></td>
+				value=""></td>
 		</tr>
 	</table>
 	<input type="submit" name="orden" value="Entrar">
+	<input type="submit" name="orden" value="Invitado">
 </form>
 </div>
 <?php 

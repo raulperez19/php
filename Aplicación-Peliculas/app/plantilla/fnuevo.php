@@ -2,19 +2,18 @@
 
 // Guardo la salida en un buffer(en memoria)
 // No se envia al navegador
-
-//AÑADIR PELICULA
 ob_start();
 ?>
 <div id='aviso'><b><?= (isset($msg))?$msg:"" ?></b></div>
-<form name='ALTA' method="POST" action="index.php?orden=Alta" enctype="multipart/form-data">
-Nombre : <input type="text" name="nombre" value=""><br><br>
-Director : <input type="text" name="director" value=""><br><br>
-Genero : <input type="text" name="genero" value=""><br><br>
-Imagen : <input type="file" name="imagen" id="imagen"><br><br>
-
-	<input type="submit" value="Almacenar">
-	<input type="cancel" value="Cancelar" size="10" onclick="javascript:window.location='index.php'" >
+<form name='ALTA' method="POST" action="index.php?orden=Alta">
+<table>
+<tr><td>Título del la película    </td><td>   <input name="nombre" type="text"> </td></tr>
+<tr><td>Director  </td><td>  <input name="director" type="text"> </td></tr>
+<tr><td>Genero    </td><td>  <input name="genero" type="text"></td></tr>
+<tr><td>Imagen    </td><td>   <input name="imagen" type="file">
+</table>
+<input type="submit" value="Enviar">
+<input type="button" value=" Volver " size="10" onclick="javascript:window.location='index.php'" >
 </form>
 <?php 
 // Vacio el bufer y lo copio a contenido

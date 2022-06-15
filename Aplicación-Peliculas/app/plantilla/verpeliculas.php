@@ -7,11 +7,20 @@ $auto = $_SERVER['PHP_SELF'];
 
 ?>
 
-
-<table>
-<h3>Buscar pelicula:</h3>
-<tr>Nombre:<input type="text" name="nombre" value=""> Director:<input type="text" name="director" value=""> Genero:<input type="text" name="genero" value=""></tr>
+<form action="index.php" method="GET">
+     &#128270 <input type="text" name="valor" placeholder="Valor a buscar.." required ><th>
+	<input type='submit' name='orden' value='Buscar Título'>
+	<input type='submit' name='orden' value='Buscar Director'>
+	<input type='submit' name='orden' value='Buscar Genero'>
+</form>
 <hr>
+<form action='index.php'>
+<input type='hidden' name='orden' value='VerPelis'> 
+<input type='submit' value='Ver Todos' >
+Tenemos <?= count($peliculas) ?> películas seleccinadas de nuestro catalogo.
+</form>
+<br>
+<table>
 <th>Código</th><th>Nombre</th><th>Director</th><th>Genero</th>
 <?php foreach ($peliculas as $peli) : ?>
 <tr>		
@@ -19,9 +28,13 @@ $auto = $_SERVER['PHP_SELF'];
 <td><?= $peli->nombre ?></td>
 <td><?= $peli->director ?></td>
 <td><?= $peli->genero ?></td>
+<?php if(isset($_SESSION['usuario'])):?>
 <td><a href="#"
 			onclick="confirmarBorrar('<?= $peli->nombre."','".$peli->codigo_pelicula."'"?>);">Borrar</a></td>
+<?php endif; ?>	
+<?php if(isset($_SESSION['usuario'])):?>		
 <td><a href="<?= $auto?>?orden=Modificar&codigo=<?=$peli->codigo_pelicula?>">Modificar</a></td>
+<?php endif; ?>	
 <td><a href="<?= $auto?>?orden=Detalles&codigo=<?= $peli->codigo_pelicula?>">Detalles</a></td>
 </tr>
 <?php endforeach; ?>
@@ -30,6 +43,8 @@ $auto = $_SERVER['PHP_SELF'];
 <form name='f2' action='index.php'>
 <input type='hidden' name='orden' value='Alta'> 
 <input type='submit' value='Nueva Película' >
+<button name='orden' value='DescargarJSON'> JSON </button>
+<button name='orden' value="LOGINOUT" >Login out</button>
 </form>
 <?php
 // Vacio el bufer y lo copio a contenido

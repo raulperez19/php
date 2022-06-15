@@ -1,24 +1,15 @@
 <?php
-/* DATOS DE UNA PELICULA */
 
-class Pelicula implements JsonSerializable
+
+class Usuario 
 {
-   private $codigo_pelicula;
-   private $nombre;
-   private $director;
-   private $genero;
-   private $imagen;
-   
-   public function JsonSerialize(){
-    return [
-        'codigo'=>$this->codigo_pelicula,
-        'nombre'=>$this->nombre,
-        'director'=>$this->director,
-        'genero'=>$this->genero,
-        'imagen'=>$this->imagen
-    ];
-    }
+    private $id;
+	private $nombre;
+	private $contraseña;
+	private $email;
+	private $rol;
 
+   
    // Getter con método mágico
    public function __get($atributo){
        $class = get_class($this);
@@ -36,4 +27,3 @@ class Pelicula implements JsonSerializable
    }
    
 }
-

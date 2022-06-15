@@ -4,9 +4,12 @@ session_start();
 include_once 'app/config.php';
 include_once 'app/controlerPeli.php';
 include_once 'app/modeloPeliDB.php';
+include_once 'app/controlerUsu.php';
+include_once 'app/modeloUserDB.php';
 
 // Inicializo el modelo 
 ModeloPeliDB::Init();
+ModeloUserDB::Init();
 
 
 // Enrutamiento
@@ -16,19 +19,25 @@ ModeloPeliDB::Init();
 $rutasPelis = [
     "Inicio"      => "ctlPeliInicio",
     "Alta"        => "ctlPeliAlta",
+    "Loggin" => "ctlUsuariologin",
     "Detalles"    => "ctlPeliDetalles",
     "Modificar"   => "ctlPeliModificar",
     "Borrar"      => "ctlPeliBorrar",
     "Cerrar"      => "ctlPeliCerrar",
     "VerPelis"    => "ctlPeliVerPelis",
-    "BuscarTitulo"    => "ctlBuscarTitulo",
-    "BuscarDirector"    => "ctlBuscarDirector",
-    "BuscarGenero"    => "ctlBuscarGenero",
-
+    "Buscar Título"   => "ctlBuscaTitulo",
+    "Buscar Genero"   => "ctlBuscaGenero",
+    "Buscar Director" => "ctlBuscaDirector",
+    "DescargarJSON" => "ctlDescargarJSON",
+    "LOGINOUT" => "ctlPeliCerrar",
 ];
 
+if(!isset($_SESSION['usuario']) &&  !isset($_SESSION['Invitado'])){
+    ctlUsuariologin();
+    exit();
+}
 
-
+//session_destroy();
 if (isset($_GET['orden'])){
             // La orden tiene una funcion asociada 
             if ( isset ($rutasPelis[$_GET['orden']]) ){
@@ -50,6 +59,7 @@ if (isset($_GET['orden'])){
  
 // Llamo a la función seleccionada
 $procRuta();
+
 
 
 

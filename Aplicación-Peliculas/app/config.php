@@ -2,7 +2,7 @@
 
 // DATOS DE CONEXION
 define ('DBSERVER','localhost');
-define ('DBNAME','pelis' );
+define ('DBNAME','peliculas' );
 define ('DBUSER','root');
 define ('DBPASSWORD','');
 
