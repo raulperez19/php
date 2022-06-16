@@ -107,6 +107,7 @@ function ctlPeliModificar(){
          } else {
              $peli->imagen = $_POST['imagenold'];
          }
+         $peli->enlacepeli   = $_POST['enlacepeli'];
         ModeloPeliDB::Update($peli);
         header('Location: index.php');
     }   

@@ -21,9 +21,13 @@ Imagen Nueva
       <img src="<?='app/img/'.$peli->imagen; ?>" alt="Imagen no disponible"><br>
       <input name="imagenold" type="hidden" value="<?= $peli->imagen ?>" > 
       <input name="imagen" type="file">  </td></tr>
+
+<tr><td>Enlace Pelicula   </td><td>   
+<a href=" <?= $peli->enlacepeli ?>" > Plataforma dónde ver la película</a></td></tr>   
 </table>
-<input type="submit" value="Enviar">
-<input type="button" value=" Volver " size="10" onclick="javascript:window.location='index.php'" >
+<br>
+<input type="submit" value="Enviar" class='buttonA'>
+<input type="button" value=" Volver " size="10"class='buttonA'  onclick="javascript:window.location='index.php'" >
 </form>
 <?php 
 // Vacio el bufer y lo copio a contenido

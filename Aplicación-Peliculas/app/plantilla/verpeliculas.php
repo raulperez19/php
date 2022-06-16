@@ -30,21 +30,23 @@ Tenemos <?= count($peliculas) ?> películas seleccinadas de nuestro catalogo.
 <td><?= $peli->genero ?></td>
 <?php if(isset($_SESSION['usuario'])):?>
 <td><a href="#"
-			onclick="confirmarBorrar('<?= $peli->nombre."','".$peli->codigo_pelicula."'"?>);">Borrar</a></td>
+			onclick="confirmarBorrar('<?= $peli->nombre."','".$peli->codigo_pelicula."'"?>);">❌Borrar</a></td>
 <?php endif; ?>	
 <?php if(isset($_SESSION['usuario'])):?>		
-<td><a href="<?= $auto?>?orden=Modificar&codigo=<?=$peli->codigo_pelicula?>">Modificar</a></td>
+<td> <a href="<?= $auto?>?orden=Modificar&codigo=<?=$peli->codigo_pelicula?>">✏️Modificar</a></td>
 <?php endif; ?>	
-<td><a href="<?= $auto?>?orden=Detalles&codigo=<?= $peli->codigo_pelicula?>">Detalles</a></td>
+<td><a href="<?= $auto?>?orden=Detalles&codigo=<?= $peli->codigo_pelicula?>">📝Detalles</a></td>
 </tr>
 <?php endforeach; ?>
 </table>
-<br>
+<br><br>
 <form name='f2' action='index.php'>
 <input type='hidden' name='orden' value='Alta'> 
-<input type='submit' value='Nueva Película' >
-<button name='orden' value='DescargarJSON'> JSON </button>
-<button name='orden' value="LOGINOUT" >Login out</button>
+<?php if(isset($_SESSION['usuario'])):?>
+<input type='submit' value='Nueva Película'class='buttonA' >
+<?php endif; ?>	
+<button name='orden' value='DescargarJSON' class='buttonA'> JSON </button>
+<button name='orden' value="LOGINOUT" class='buttonA'>Login out</button>
 </form>
 <?php
 // Vacio el bufer y lo copio a contenido

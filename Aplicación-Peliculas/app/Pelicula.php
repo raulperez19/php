@@ -8,6 +8,8 @@ class Pelicula implements JsonSerializable
    private $director;
    private $genero;
    private $imagen;
+   private $urlvideo;
+   private $enlacepeli;
    
    public function JsonSerialize(){
     return [
@@ -15,7 +17,9 @@ class Pelicula implements JsonSerializable
         'nombre'=>$this->nombre,
         'director'=>$this->director,
         'genero'=>$this->genero,
-        'imagen'=>$this->imagen
+        'imagen'=>$this->imagen,
+        'urlvideo'=>$this->urlvideo,
+        'enlacepeli'=>$this->enlacepeli
     ];
     }
 

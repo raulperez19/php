@@ -1,7 +1,7 @@
 body {
   background: silver;
   text-align: justify;
-  font-family: Tahoma, Geneva, sans-serif;
+  font-family: Courier New, Tahoma, Geneva, sans-serif; 
   font-size: 14px;
   color: #757E82;
 }
@@ -21,7 +21,7 @@ body {
 }
 
 #header {
-  background: blue;
+  background: rgb(8, 111, 201);
   text-align: center;
   padding: 20px;
   color: white;
@@ -48,6 +48,13 @@ body {
   color:#000;
   font-size: 160%;
   margin: 0 0 .5em;
+}
+
+.buttonA {
+  background: rgba(8, 111, 201, 0.8);
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 8px;
 }
 
 #aviso {
@@ -81,6 +88,8 @@ table, th, td {
   border-collapse:collapse;
   padding: 4px;
 }
+tr:nth-child(even){background-color: #f2f2f2}
+
 th {
 	background: silver;
 	color: black;
